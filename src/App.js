@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Today from './Today/Today'
+import History from './History/History'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="">
+          <div className="topheader">
+              <header className="container">
+                  <nav className="navbar">
+                      <div className="navbar-brand">
+                          <span className="navbar-item">Jeopardy</span>
+                      </div>
+                      <div className="navbar-end">
+                          <a className="navbar-item" href="https://jeopardy.com" target="_blank" rel="noopener noreferrer">Jeopardy.com</a>
+                      </div>
+                  </nav>
+              </header>
+          </div>
+          <section className="results--section">
+              <div className="container">
+                  <h1>A Jeopardy Game For Fans</h1>
+              </div>
+              <div className="results--section__inner">
+                  <Today />
+                  <History />
+              </div>
+          </section>
       </div>
     );
   }
