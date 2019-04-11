@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Today from '../Today/Today'
-// import History from './History/History'
+import History from '../History/History'
 
 class App extends Component {
   render() {
@@ -25,7 +25,7 @@ class App extends Component {
               </div>
               <div className="results--section__inner">
                   <Today />
-                  {/* <History /> */}
+                  <History />
               </div>
           </section>
       </div>
