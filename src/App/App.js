@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Today from './Today/Today'
+import Today from '../Today/Today'
 // import History from './History/History'
 
 class App extends Component {
@@ -24,8 +24,8 @@ class App extends Component {
                   <h1>PusherCoins is a realtime price information about<br></br> BTC, ETH and LTC.</h1>
               </div>
               <div className="results--section__inner">
-                  {/* <Today />
-                  <History /> */}
+                  <Today />
+                  {/* <History /> */}
               </div>
           </section>
       </div>
