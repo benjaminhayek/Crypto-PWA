@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Today from '../Today/Today'
-import History from '../History/History'
+// import Today from '../Today/Today'
+// import History from '../History/History'
 
 class App extends Component {
   render() {
@@ -24,8 +24,8 @@ class App extends Component {
                   <h1>A Jeopardy Game For Fans</h1>
               </div>
               <div className="results--section__inner">
-                  <Today />
-                  <History />
+                  {/* <Today />
+                  <History /> */}
               </div>
           </section>
       </div>
