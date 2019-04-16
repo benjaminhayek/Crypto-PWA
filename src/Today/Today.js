@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Today.css'
-import axios from 'axios'
-
+import './Today.css';
+import axios from 'axios';
+import Pusher from 'pusher-js'
 
 class Today extends Component {
     constructor () {
@@ -22,7 +22,39 @@ class Today extends Component {
             .catch(error => {
                 console.log(error)
             })
+        this.pusher = new Pusher('APP_KEY', {
+            cluster: 'YOUR_CLUSTER',
+            encrypted: true
+        });
+        this.prices = this.pusher.subscribe('coin-prices');
+        setInterval(() => {
+            axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD')
+                .then(response => {
+                    this.sendPricePusher (response.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }, 10000)
+        this.prices.bind('prices', price => {
+            this.setState({ btcprice: price.prices.BTC.USD });
+            this.setState({ ethprice: price.prices.ETH.USD });
+            this.setState({ ltcprice: price.prices.LTC.USD });
+          }, this);
     }
+
+    sendPricePusher (data) {
+        axios.post('/prices/new', {
+            prices: data
+        })
+          .then(response => {
+              console.log(response)
+          })
+          .catch(error => {
+              console.log(error)
+          })
+     }
+
     render() {
         return (
             <div className="today--section container">
