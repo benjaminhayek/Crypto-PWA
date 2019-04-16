@@ -36,6 +36,11 @@ class Today extends Component {
                     console.log(error)
                 })
         }, 10000)
+        this.prices.bind('prices', price => {
+            this.setState({ btcprice: price.prices.BTC.USD });
+            this.setState({ ethprice: price.prices.ETH.USD });
+            this.setState({ ltcprice: price.prices.LTC.USD });
+          }, this);
     }
 
     sendPricePusher (data) {
