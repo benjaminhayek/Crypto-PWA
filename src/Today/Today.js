@@ -14,14 +14,19 @@ class Today extends Component {
     }
     componentWillMount () {
         axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD')
-            .then(response => {
-                this.setState({ btcprice: response.data.BTC.USD });
-                this.setState({ ethprice: response.data.ETH.USD });
-                this.setState({ ltcprice: response.data.LTC.USD });
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        .then(response => {
+            this.setState({ btcprice: response.data.BTC.USD });
+            localStorage.setItem('BTC', response.data.BTC.USD);
+
+            this.setState({ ethprice: response.data.ETH.USD });
+            localStorage.setItem('ETH', response.data.ETH.USD);
+
+            this.setState({ ltcprice: response.data.LTC.USD });
+            localStorage.setItem('LTC', response.data.LTC.USD);
+        })
+        .catch(error => {
+            console.log(error)
+        })
         this.pusher = new Pusher('APP_KEY', {
             cluster: 'YOUR_CLUSTER',
             encrypted: true
