@@ -36,6 +36,7 @@ class History extends Component {
                     btc: btc.data.BTC.USD,
                     ltc: ltc.data.LTC.USD
                 }
+                localStorage.setItem('todayprice', JSON.stringify(f));
                 this.setState({ todayprice: f });
             }));
     }
@@ -91,6 +92,8 @@ class History extends Component {
                 this.setState({ fourdaysprice: f });
             }));
     }
+
+    
     componentWillMount () {
         this.getTodayPrice();
         this.getYesterdayPrice();
