@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Today.css'
-import axios from 'axios'
-
+import './Today.css';
+import axios from 'axios';
+import Pusher from 'pusher-js'
 
 class Today extends Component {
     constructor () {
