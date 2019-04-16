@@ -27,6 +27,15 @@ class Today extends Component {
             encrypted: true
         });
         this.prices = this.pusher.subscribe('coin-prices');
+        setInterval(() => {
+            axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD')
+                .then(response => {
+                    this.sendPricePusher (response.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }, 10000)
     }
 
     sendPricePusher (data) {
@@ -40,7 +49,7 @@ class Today extends Component {
               console.log(error)
           })
      }
-     
+
     render() {
         return (
             <div className="today--section container">
