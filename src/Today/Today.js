@@ -28,6 +28,19 @@ class Today extends Component {
         });
         this.prices = this.pusher.subscribe('coin-prices');
     }
+
+    sendPricePusher (data) {
+        axios.post('/prices/new', {
+            prices: data
+        })
+          .then(response => {
+              console.log(response)
+          })
+          .catch(error => {
+              console.log(error)
+          })
+     }
+     
     render() {
         return (
             <div className="today--section container">
