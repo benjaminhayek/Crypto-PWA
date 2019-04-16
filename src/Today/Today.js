@@ -22,6 +22,11 @@ class Today extends Component {
             .catch(error => {
                 console.log(error)
             })
+        this.pusher = new Pusher('APP_KEY', {
+            cluster: 'YOUR_CLUSTER',
+            encrypted: true
+        });
+        this.prices = this.pusher.subscribe('coin-prices');
     }
     render() {
         return (
