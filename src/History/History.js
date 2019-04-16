@@ -78,6 +78,7 @@ class History extends Component {
                     btc: btc.data.BTC.USD,
                     ltc: ltc.data.LTC.USD
                 }
+                localStorage.setItem('threedaysprice', JSON.stringify(f));
                 this.setState({ threedaysprice: f });
             }));
     }
@@ -91,6 +92,7 @@ class History extends Component {
                     btc: btc.data.BTC.USD,
                     ltc: ltc.data.LTC.USD
                 }
+                localStorage.setItem('fourdaysprice', JSON.stringify(f));
                 this.setState({ fourdaysprice: f });
             }));
     }
