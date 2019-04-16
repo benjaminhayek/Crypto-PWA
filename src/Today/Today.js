@@ -14,19 +14,34 @@ class Today extends Component {
     }
     componentWillMount () {
         axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD')
-            .then(response => {
-                this.setState({ btcprice: response.data.BTC.USD });
-                this.setState({ ethprice: response.data.ETH.USD });
-                this.setState({ ltcprice: response.data.LTC.USD });
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        .then(response => {
+            this.setState({ btcprice: response.data.BTC.USD });
+            localStorage.setItem('BTC', response.data.BTC.USD);
+
+            this.setState({ ethprice: response.data.ETH.USD });
+            localStorage.setItem('ETH', response.data.ETH.USD);
+
+            this.setState({ ltcprice: response.data.LTC.USD });
+            localStorage.setItem('LTC', response.data.LTC.USD);
+        })
+        .catch(error => {
+            console.log(error)
+        })
         this.pusher = new Pusher('APP_KEY', {
             cluster: 'YOUR_CLUSTER',
             encrypted: true
         });
         this.prices = this.pusher.subscribe('coin-prices');
+        this.prices.bind('prices', price => {
+            this.setState({ btcprice: price.prices.BTC.USD });
+            this.setState({ ethprice: price.prices.ETH.USD });
+            this.setState({ ltcprice: price.prices.LTC.USD });
+          }, this);
+        if (!navigator.onLine) {
+            this.setState({ btcprice: localStorage.getItem('BTC') });
+            this.setState({ ethprice: localStorage.getItem('ETH') });
+            this.setState({ ltcprice: localStorage.getItem('LTC') });
+        }
         setInterval(() => {
             axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC&tsyms=USD')
                 .then(response => {
@@ -36,11 +51,6 @@ class Today extends Component {
                     console.log(error)
                 })
         }, 10000)
-        this.prices.bind('prices', price => {
-            this.setState({ btcprice: price.prices.BTC.USD });
-            this.setState({ ethprice: price.prices.ETH.USD });
-            this.setState({ ltcprice: price.prices.LTC.USD });
-          }, this);
     }
 
     sendPricePusher (data) {
