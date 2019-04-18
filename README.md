@@ -22,8 +22,6 @@ Run `npm build` to build server.
 
 Run `serve -s build` and visit localhost:5000 to view as PWA.
 
-Run tests with `npm test`.
-
 ## Final Result
 
 ![alt tag](https://github.com/benjaminhayek/Crypto-PWA/blob/master/src/Utils/home.png "Screen-shot of App")
