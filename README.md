@@ -30,4 +30,4 @@ Run `serve -s build` and visit localhost:5000 to view as PWA.
 
 ## Lighthouse PWA Status
 
-![alt tag](https://github.com/benjaminhayek/Crypto-PWA/blob/master/src/Utils/lighthouse.png "Lighthouse PWA Check")
+![alt tag](https://github.com/benjaminhayek/Crypto-PWA/blob/master/src/Utils/lighthouse2.png "Lighthouse PWA Check")
