@@ -106,6 +106,11 @@ class History extends Component {
             this.setState({ threedaysprice: JSON.parse(localStorage.getItem('threedaysprice')) });
             this.setState({ fourdaysprice: JSON.parse(localStorage.getItem('fourdaysprice')) });
         }
+        this.getTodayPrice();
+        this.getYesterdayPrice();
+        this.getTwoDaysPrice();
+        this.getThreeDaysPrice();
+        this.getFourDaysPrice();
     }
 
     render() {
