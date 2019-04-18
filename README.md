@@ -6,7 +6,7 @@ This project allows users to check the prices of Bitcoin, Litecoin, and Etherium
 
 * Create a Progressive Web App to check crypto-currency prices.
 * Allow application to run offline.
-* Call the crypto API to revieve realtime prices.
+* Call the crypto API to recieve realtime prices.
 * Achieve above 90% on Lighthouse.
 * Make use of local storage facilities.
 
