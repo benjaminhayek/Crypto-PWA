@@ -29,3 +29,7 @@ Run tests with `npm test`.
 ![alt tag](https://github.com/benjaminhayek/Crypto-PWA/blob/master/src/Utils/home.png "Screen-shot of App")
 
 ![alt tag](https://github.com/benjaminhayek/Crypto-PWA/blob/master/src/Utils/bottom.png "Screen-shot of App")
+
+## Lighthouse PWA Status
+
+![alt tag](https://github.com/benjaminhayek/Crypto-PWA/blob/master/src/Utils/lighthouse.png "Lighthouse PWA Check")
