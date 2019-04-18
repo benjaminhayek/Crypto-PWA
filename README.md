@@ -26,6 +26,6 @@ Run tests with `npm test`.
 
 ## Final Result
 
-![alt tag](https://github.com/benjaminhayek/Crypto-PWA/blob/master/src/utils/Today.png "Screen-shot of App")
+![alt tag](https://github.com/benjaminhayek/Crypto-PWA/blob/master/src/Utils/Today.png "Screen-shot of App")
 
-![alt tag](https://github.com/benjaminhayek/Crypto-PWA/blob/master/src/utils/Yesterday.png "Screen-shot of App")
+![alt tag](https://github.com/benjaminhayek/Crypto-PWA/blob/master/src/Utils/Yesterday.png "Screen-shot of App")
